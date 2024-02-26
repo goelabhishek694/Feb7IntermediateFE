@@ -16,3 +16,6 @@ https://www.w3schools.com/cssref/trysel.php?selector=p:last-child
 23/02/2024
 https://flexboxfroggy.com/
 https://cssgridgarden.com/
+
+26/02/2024
+https://www.codecademy.com/resources/docs/css/inheritance

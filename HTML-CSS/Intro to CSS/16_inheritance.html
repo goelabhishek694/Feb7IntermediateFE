@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p{
+            font-family:cursive
+        }
+        p.special{
+            font-family: inherit;
+        }
+        a{
+            color: red;
+        }
+        .default-color{
+            color: initial;
+        }
+        p{
+            margin: 20px;
+        }
+        /* if this prop is inheritable then inherit from parent and apply that value , in case it is not inheritable then apply the initial style.  */
+        .para{
+            margin: unset;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inheritance</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consequatur architecto iure ullam, vitae voluptatum, tempora vel cum perferendis veritatis nemo, provident culpa est. Incidunt esse blanditiis totam facere alias.</p>
+    <p class="special">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consequatur architecto iure ullam, vitae voluptatum, tempora vel cum perferendis veritatis nemo, provident culpa est. Incidunt esse blanditiis totam facere alias.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi consequatur architecto iure ullam, vitae voluptatum, tempora vel cum perferendis veritatis nemo, provident culpa est. Incidunt esse blanditiis totam facere alias.</p>
+    <a href="">I am a link with red color</a>
+    <a href="" class="default-color">I am a link without red color</a>
+    <p>I am a para with 20px margin</p>
+    <p class="para">I am a para with no margin</p>
+</body>
+</html>

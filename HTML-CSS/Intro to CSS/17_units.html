@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 12px;
+        }
+
+        /* .rem {
+            font-size: 2rem;
+        } */
+
+        .px {
+            font-size: 12px;
+        }
+
+        .vh-vw {
+            height: 50vh;
+            width: 50vw;
+            font-size: 2vw;
+            border: 5px solid red;
+        }
+
+        .gp {
+            height: 400px;
+            width: 400px;
+            border: 2px solid black;
+        }
+
+        .parent {
+            /* height: 400px;
+            width: 400px;  */
+             height: 50%;
+            width: 50%;
+            border: 4px solid purple;
+
+        }
+
+         .child {
+            height: 50%;
+            width: 30%;
+            border: 5px dashed salmon;
+        } 
+
+        .emp {
+            font-size: 20px;
+        }
+
+        .em {
+            font-size: 2em;
+        }
+        .wem{
+            height: 5em;
+            width: 3em;
+            border: 2px solid black;
+        }
+        .uem li{
+            font-size: 1.5em;
+        }
+        .urem li{
+            font-size: 1.5rem; 
+        }
+        .rem li{
+            font-size: 1.5rem;
+        }
+        .parent2 {
+             height: 50rem;
+            width:40rem;
+            border: 4px solid purple;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p class="rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. A excepturi qui impedit, facere earum
+        architecto ullam dolorem ea cum, quibusdam consequatur unde aspernatur!</p> -->
+    <p class="px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptas id eaque obcaecati
+        pariatur quisquam quam totam eveniet nostrum blanditiis ut veritatis eius, odio nam fuga quidem aut culpa
+        voluptates.</p>
+    <p class="vh-vw">VH VW Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis cupiditate optio qui tenetur blanditiis est ducimus beatae asperiores itaque, natus cumque ex error neque. Doloribus itaque exercitationem sunt perspiciatis. Perspiciatis.</p>
+    <div class="vh-vw"></div>
+    <div class="gp">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div>
+    <!-- <div class="emp">
+        <p class="em">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt at odio nobis voluptates
+            fugiat provident incidunt perferendis ipsum! Error fuga in dolore aspernatur facilis velit dolorem,
+            possimus ex? Quia, nesciunt?</p>
+    </div> -->
+
+    <!-- <div class="emp">
+        <div class="wem">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil asperiores vero voluptatibus exercitationem molestias, enim possimus tenetur facere natus harum perspiciatis quia fuga eum ipsa ab eius, dolore consectetur. Adipisci.</div>
+    </div> -->
+
+    <ul class="uem">
+        <li>Heading 1</li>
+        <li>Heading 2</li>
+        <li>Heading 3
+            <ul>
+                <li>Heading 3a</li>
+                <li>Heading 3b</li>
+                <li>Heading 3a
+                <ul>
+                    <li>Heading 3a(i)</li>
+                    <li>Heading 3a(ii)</li>
+                    <li>Heading 3a(iii)</li>
+                </ul></li>
+            </ul>
+        </li>
+    </ul>
+    <div style="font-size: 20px;">
+        <p style="font-size: 1em;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil voluptas magnam voluptate quo cum, consectetur maxime, fuga, tenetur voluptatem ab fugiat ratione! Veniam ducimus qui quod blanditiis, nostrum ipsam et!</p>
+    </div>
+
+    <ul class="rem">
+        <li>Heading 1</li>
+        <li>Heading 2</li>
+        <li>Heading 3
+            <ul>
+                <li>Heading 3a</li>
+                <li>Heading 3b</li>
+                <li>Heading 3a
+                <ul>
+                    <li>Heading 3a(i)</li>
+                    <li>Heading 3a(ii)</li>
+                    <li>Heading 3a(iii)</li>
+                </ul></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="parent2">
+
+    </div>
+</body>
+
+</html>
