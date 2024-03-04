@@ -28,17 +28,17 @@
 // dog.sayHi();
 
 //quiz-7
-// var firstName="Tommy";
-// let dog={
-//     firstName:"Pluto",
-//     sayHi:function(){
-//         console.log(`${this.firstName} says hi `);
-//         const inner=()=>{
-//             console.log(`${this.firstName} says hi `);
-//         }
-//         inner()
-//     }
-// }
+var firstName="Tommy";
+let dog={
+    firstName:"Pluto",
+    sayHi:function(){
+        console.log(`${this.firstName} says hi `);
+        const inner=()=>{
+            console.log(`${this.firstName} says hi `);
+        }
+        inner()
+    }
+}
 
 // dog.sayHi();
 // sayHi this-> dog
@@ -60,12 +60,12 @@
 
 // dog.arrowSayHi(); 
 
-function add(x, x) {
-    return x + x;
-}
+// function add(x, x) {
+//     return x + x;
+// }
 
-let ans=add(2,3)
-console.log(ans);
+// let ans=add(2,3)
+// console.log(ans);
 
 // gec
 // MA
@@ -90,5 +90,26 @@ console.log(ans);
 
 // }
 
+
+
+let dog={
+    firstName:"Pluto",
+    sayHi:function(){
+        console.log(`${this.firstName} says hi `); //Pluto
+        function subInner(){
+            console.log(this.firstName); //Pluto
+        
+            function inner(){ 
+                console.log(`${this.firstName} says hi `); //Pluto
+            }
+            inner() 
+        }
+        subInner()
+    }
+}
+
+dog.sayHi(); //-> method -> this-> dog 
+
+// subInner's this -> this of outer -> sayHi' this -> dog
 
 
