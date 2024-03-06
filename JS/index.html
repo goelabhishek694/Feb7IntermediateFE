@@ -14,7 +14,240 @@
     <!-- <script src="./5_shadowing.js"></script> -->
     <!-- <script src="./6_this.js"></script> -->
     <!-- <script src="./7_strict.js"></script> -->
-    <script src="./8_inheritance.js"></script>
+    <!-- <script src="./8_inheritance.js"></script> -->
     <!-- <script src="./9_call_apply_bind.js"></script> -->
+    <!-- <script src="./10_spread-rest-default.js"></script> -->
+    <script src="./11_polyfills.js"></script>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" />
+<style>
+.container {
+position: relative;
+width: 300px;
+height: 200px;
+border: 1px solid #000;
+}
+.box {
+width: 100px;
+height: 100px;
+background-color: #f0f0f0;
+}
+.box1 {
+    background-color: lightcoral;
+position: absolute;
+top: 10px;
+left: 10px;
+}
+.box2 {
+    background-color: lightblue;
+position: relative;
+top: 20px;
+left: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="box box1"></div>
+<div class="box box2"></div>
+</div>
+</body>
+</html>
+
+<!--
+Based on the given code, what will be the visual positioning of "Box 1" and "Box 2" elements? 
+"Box 1" will be positioned 10 pixels from the top and left of the container, while "Box 2" will be
+positioned 20 pixels from the top and left of its original position inside the container. 
+Both "Box 1" and "Box 2" will be positioned 20 pixels from the top and left of the container. 
+Both "Box 1" and "Box 2" will be positioned 10 pixels from the top and left of the container. 
+"Box 1" will be positioned 10 pixels from the top and left of the container, while "Box 2" will be
+positioned 20 pixels from the top and left of the container.
+-->
+
+<!-- 
+Pin a message
+Vishnu Vardhan
+To: Me
+10:12 PM
+yes
+10:12 PM
+1
+Vishnu Vardhan
+To: Me
+10:12 PM
+please type it there once and check
+10:13 PM
+2
+10:13 PM
+1
+Vishnu Vardhan
+To: Me
+10:13 PM
+No. I said about proto itself and you checked it.
+10:13 PM
+1
+Satyam
+To: Me
+10:16 PM
+false is for inherited properties
+10:16 PM
+4
+10:16 PM
+1
+10:17 PM
+1
+10:19 PM
+6
+Asutosha Sahoo
+To: Me
+10:20 PM
+Akanksha , satyam
+Vishnu Vardhan
+To: Me
+10:21 PM
+Akanksha
+Satyam
+Vishnu Vardhan
+To: Me
+10:21 PM
+Now, if we check person2.hasOwnProperty("name"), will it give false?
+Ananth Sivass
+To: Me
+10:21 PM
+akasha , sathya
+10:22 PM
+2
+1
+Ananth Sivass
+To: Me
+10:22 PM
+akasha will get
+10:22 PM
+3
+10:23 PM
+2
+10:23 PM
+1
+Vishnu Vardhan
+To: Me
+10:23 PM
+if we check person2.hasOwnProperty("name"), will it give false?
+Satyam
+To: Me
+10:23 PM
+True
+Ananth Sivass
+To: Me
+10:23 PM
+true
+avinash kumar
+To: Me
+10:23 PM
+true
+Vishnu Vardhan
+To: Me
+10:24 PM
+Before we do person2.name=""
+MUTHU KRISHNAN
+To: Me
+10:24 PM
+what happens if we do person2.proto.greet()
+Vishnu Vardhan
+To: Me
+10:24 PM
+yes
+10:24 PM
+3
+10:24 PM
+1
+avinash kumar
+To: Me
+10:25 PM
+can you explain last part once again
+avinash kumar
+To: Me
+10:25 PM
+yes
+Vishnu Vardhan
+To: Me
+10:27 PM
+Even if we try some random string and check, it gives false only right?
+avinash kumar
+To: Me
+10:27 PM
+no
+avinash kumar
+To: Me
+10:27 PM
+got it now
+10:28 PM
+1
+Satyam
+To: Me
+10:30 PM
+proto 2 times
+Ananth Sivass
+To: Me
+10:30 PM
+__proto
+avinash kumar
+To: Me
+10:30 PM
+. and access
+Vishnu Vardhan
+To: Me
+10:30 PM
+straight .
+10:31 PM
+2
+10:32 PM
+1
+Vishnu Vardhan
+To: Me
+10:32 PM
+we can only access built in props like this right? Any custom props created can also be accessed?
+10:32 PM
+3
+Asutosha Sahoo
+To: Me
+10:32 PM
+only incase of alteration of any method of parent we use proto ?
+10:33 PM
+1
+10:33 PM
+3
+Vishnu Vardhan
+To: Me
+10:34 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+.heading{
+color: lightgreen;
+}
+h1{
+background-color: lightgray;
+color: red;
+}
+</style>
+</head>
+<body>
+<h1 class="heading">Hi I am h1</h1class>
+</body>
+</html> ........External CSS....... h1 {
+color: blue;
+}
+.heading {
+color: gray;
+} This is a question in exam. Answer is lightgreen right? --> 
