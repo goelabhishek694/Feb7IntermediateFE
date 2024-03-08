@@ -19,3 +19,7 @@ https://cssgridgarden.com/
 
 26/02/2024
 https://www.codecademy.com/resources/docs/css/inheritance
+
+08/03/2024
+https://www.youtube.com/playlist?list=PL-Jc9J83PIiEW-8x9Js6m5UixBUciYaMV
+https://lodash.com/docs/4.17.15#cloneDeep
