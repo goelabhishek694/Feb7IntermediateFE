@@ -135,7 +135,7 @@ let p1=new Promise((resolve,reject)=>{
     setTimeout(()=>resolve(10),1000)
 })
 let p2=new Promise((resolve,reject)=>{
-    setTimeout(()=>reject("err in 2nd promise"),2000)
+    setTimeout(()=>resolve("err in 2nd promise"),2000)
 })
 let p3=new Promise((resolve,reject)=>{
     setTimeout(()=>resolve(12),3000)
@@ -162,95 +162,146 @@ let p3=new Promise((resolve,reject)=>{
 
 //<-------------------------------Promise.allSettled()----------------------------->
 
-let promiseArr=Promise.allSettled([p1,p2,p3]);
-console.log(promiseArr);
-promiseArr.then(arrOFdata=>{
-    console.log(arrOFdata);
-    let failedPromises=[]
-    arrOFdata.forEach(obj=>{
-        if(obj.status=="fulfilled"){
-            console.log(obj.value);
-        }
-        else{
-            failedPromises.push(obj.reason)
-        }
-    })
-    return Promise.reject(failedPromises)
-})
-.catch(err=>console.log(err))
+// let promiseArr=Promise.allSettled([p1,p2,p3]);
+// console.log(promiseArr);
+// promiseArr.then(arrOFdata=>{
+//     console.log(arrOFdata);
+//     let failedPromises=[]
+//     arrOFdata.forEach(obj=>{
+//         if(obj.status=="fulfilled"){
+//             console.log(obj.value);
+//         }
+//         else{
+//             failedPromises.push(obj.reason)
+//         }
+//     })
+//     return Promise.reject(failedPromises)
+// })
+// .catch(err=>console.log(err))
 
 
 //<-------------- pollyfill of promise.all()------------------>
 
-// Promise.prototype.myPromiseAll=function(arrOfPromises){
-//     return new Promise(function (resolve,reject){
-//         let unresolvedPromises=arrOfPromises.length;
-//         arrOfPromises.forEach((promise)=>{
-//             try{
-                
-//             }
-//         })
-//     })
-// }
+Promise.myPromiseAll=function(arrOfPromises){
+    return new Promise(function (resolve,reject){
+        let unresolvedPromises=arrOfPromises.length; //3
+        if(unresolvedPromises==0){
+            resolve([]);
+        }
+        const resolvedPromiseArr=[];
+        arrOfPromises.forEach(async (promise)=>{
+            try{
+                let value=await promise;
+                resolvedPromiseArr.push(value);
+                unresolvedPromises--;
 
-// let promise=Promise.myPromiseAll([p1,p2,p3])
-
-
-
-// custom promise API
-
-function promSetTimeout(delay){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>resolve("Hey then"),delay)
+                if(unresolvedPromises==0){
+                    resolve(resolvedPromiseArr)
+                }
+            }
+            catch(err){
+                reject(err)
+            }
+        })
     })
 }
 
-let rp=promSetTimeout(1000);
-rp.then(val=>{
-    console.log(val);
+
+
+let promise=Promise.myPromiseAll([p1,p2,p3])
+promise.then((arrOfData)=>{
+    console.log(arrOfData);
 })
-.catch(err=>console.log(err))
+
+// custom promise API
+
+// function promSetTimeout(delay){
+//     const promise=new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve("Hey then")
+//         },delay)
+//     })
+//     return promise;
+// }
+
+// let rp=promSetTimeout(1000);
+// rp.then(val=>{
+//     console.log(val);
+// })
+// rp.catch(err=>console.log(err))
 
 //basic custom promise 
 
-const executorFn=(resolve,reject)=>{
-    setTimeout(()=>{
-        const value="hey then";
-        resolve(value)
-    },1000)
-};
+// const executorFn=(resolve,reject)=>{
+//     setTimeout(()=>{
+//         const value="hey then";
+//         resolve(value)
+//     },1000)
+// };
 
-const myPromise= new CustomPromise(executorFn);
-myPromise.then(data=>{
-    console.log(data);
-})
-.catch(err=>console.log(err))
+// as soon as Promise function is called , my executor function is called immediately 
+// const myPromise= new CustomPromise((resolve,reject)=>{
+//     //mimicing that my req is taking ome time 
+//     //like db call 
+//     setTimeout(()=>{
+//         const value="10";
+//         resolve(value)
+//     },2000)
+// });
+// myPromise.then(data=>{
+//     console.log(data);
+// })
+// myPromise.then(data=>{
+//     console.log(Number(data)+100);
+// })
+// myPromise.then(data=>{
+//     console.log(data-100);
+// })
+// myPromise.catch(err=>console.log(err))
 
-const PENDING="pending";
-const RESOLVED="fulfilled";
-const REJECTED="rejected";
+// // This custom implementation demonstrates how promises handle asynchronous operations, state management, and callback execution in JavaScript.
+// function CustomPromise(executorFn){
+//     const PENDING="pending";
+//     const RESOLVED="fulfilled";
+//     const REJECTED="rejected";  
+//     let state=PENDING;
+//     let value=undefined;
+//     let scbArr=[]; // an array to store success callabcks then 
+//     let fcbArr=[]; //// an array to store fail callabcks catch 
 
-function CustomPromise(executorFn){
-    let state=PENDING;
-    let value=undefined;
-    let scbArr=[]; // an array to store success callabcks then 
-    let fcbArr=[]; //// an array to store fail callabcks catch 
+//     this.then=(cb)=>{
+//         if(state==RESOLVED){
+//             cb(value)
+//         }
+//         else{ // if state is pending 
+//             scbArr.push(cb);
+//         }
+//     }
 
-    this.then=(cb)=>{
-        if(state==RESOLVED){
-            cb(value)
-        }
-        else{
-            scbArr.push(cb);
-        }
-    }
+//     this.catch=(cb)=>{
+//         if(state==REJECTED){
+//             cb(value)
+//         }
+//         else{ // if state is pending 
+//             fcbArr.push(cb)
+//         }
+//     }
 
-    this.catch=(cb)=>{
-        if(state==REJECTED){
-            cb(value)
-        }
-        else{
-            fcbArr.push(cb)
-        }
-    }
-}
+//     const resolve=(val)=>{
+//         state=RESOLVED;
+//         value=val;
+//         scbArr.forEach((cb)=>{
+//             cb(val)
+//         })
+//     }
+
+//     const reject=(err)=>{
+//         state=REJECTED;
+//         value=err;
+//         fcbArr.forEach((cb)=>{
+//             cb(val)
+//         })
+//     }
+
+//     executorFn(resolve,reject)
+// }
